@@ -16,7 +16,7 @@ Live Screen Recording of Application Functionality: https://watch.screencastify.
 
 ## Installation
 
-1. Clone the repo: `git clone git@github.com:Jhona11/`
+1. Clone the repo: `git clone git@https://github.com/Jhona11/Jhona-Challenge-13-E-commerce.git`
 
 2. Open in VS Code. If you do not have VS code you must install it.
 
