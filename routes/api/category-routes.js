@@ -7,16 +7,16 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll({
-    attributes: ["id", "category_name"],
+
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+
       },
     ],
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -31,16 +31,16 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "category_name"],
+
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+
       },
     ],
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create({ category_name: req.body.category_name })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -67,12 +67,12 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
     });
-    
+
 });
 
 router.delete('/:id', (req, res) => {
@@ -83,7 +83,7 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);

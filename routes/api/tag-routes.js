@@ -7,16 +7,16 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    attributes: ["id", "tag_name"],
+    
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+     
       },
     ],
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -30,16 +30,16 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "tag_name"],
+   
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
+      
       },
     ],
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create({ tag_name: req.body.tag_name })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -81,7 +81,7 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((data) => {
-      res.json(data);
+      res.status(200).json(data);
     })
     .catch((err) => {
       res.status(400).json(err);
